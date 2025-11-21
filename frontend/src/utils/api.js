@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const backendBaseURL = "http://localhost:5000/api";
+const backendBaseURL =
+  "https://full-stack-developer-assignment-jpkm.onrender.com/api" ||
+  "http://localhost:5000/api";
+
+// "http://localhost:5000/api"
 
 export const analyzeSkillGap = (targetRole, currentSkills) =>
   axios

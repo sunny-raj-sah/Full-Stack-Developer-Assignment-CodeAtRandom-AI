@@ -1,134 +1,173 @@
-CodeAtRandom AI Backend README
+⚙️ CodeAtRandom AI — Backend
 
-Overview
-This backend provides APIs for:
+A Node.js + Express backend providing APIs for skill gap analysis, career roadmap generation, and fetching the latest tech news.
 
-Skill gap analysis based on user input and predefined skills.
+📌 Overview
 
-Career roadmap generation for specified roles.
+This backend powers the full-stack CodeAtRandom AI project with:
 
-Latest tech news fetched from HackerNews public API.
+🔍 Skill gap analysis based on predefined roles & skills
 
-Tech Stack
-Node.js with Express
+🛣 Career roadmap generation for user-selected roles
 
-Uses JSON files for data storage (skills.json and roadmaps.json)
+📰 Tech news integration using the HackerNews public API
 
-Public API integration (HackerNews)
+Data is served via simple REST APIs for smooth frontend integration.
+
+🛠 Tech Stack
+
+Node.js
+
+Express.js
+
+Nodemon (for development)
 
 CORS enabled
 
-Setup Instructions
-Clone or download the repository.
+JSON-based data storage
 
-Navigate to the /backend folder.
+skills.json
 
-Run npm install to install dependencies.
+roadmaps.json
 
-Ensure the /data directory contains skills.json and roadmaps.json.
+📁 Project Structure
+/backend
+/data
+skills.json
+roadmaps.json
+/routes
+skillGap.js
+roadmap.js
+news.js
+server.js
+package.json
 
-Start the server:
+🚀 Setup Instructions
+1️⃣ Clone the repository
+git clone https://github.com/sunny-raj-sah/Full-Stack-Developer-Assignment-CodeAtRandom-AI
 
-bash
-npm run dev # for development with nodemon
+2️⃣ Navigate to backend
+cd backend
 
-# or
+3️⃣ Install dependencies
+npm install
 
-npm start # for running normally
-Backend will run on http://localhost:5000 by default.
+4️⃣ Ensure data files exist
 
-API Endpoints
+✔ data/skills.json
+✔ data/roadmaps.json
 
-1. Skill Gap Analyzer
-   URL: /api/skill-gap
+5️⃣ Start the server
 
+Development mode (auto-reload):
+
+npm run dev
+
+Production mode:
+
+npm start
+
+🖥 Default server URL
+http://localhost:5000
+
+🔌 API Endpoints
+🔹 1. Skill Gap Analyzer API
+
+URL: /api/skill-gap
 Method: POST
-
-Description: Analyzes skill gaps for a target role based on user's current skills.
+Description: Analyzes the user's current skills and finds gaps for the target role.
 
 Request Body:
-
-json
 {
 "targetRole": "Backend Developer",
 "currentSkills": ["Java", "Git"]
 }
-Response: JSON object containing:
 
-matchedSkills (Array)
+Response Example:
+{
+"matchedSkills": ["Java", "Git"],
+"missingSkills": ["Spring Boot", "SQL", "APIs"],
+"recommendations": [
+"Learn Spring Boot via official docs and tutorials",
+"Learn SQL via official docs and tutorials",
+"Learn APIs via official docs and tutorials"
+],
+"suggestedLearningOrder": [
+"Java",
+"Git",
+"Spring Boot",
+"SQL",
+"APIs"
+]
+}
 
-missingSkills (Array)
+🔹 2. Career Roadmap Generator API
 
-recommendations (Array of strings)
-
-suggestedLearningOrder (Array)
-
-2. Career Roadmap Generator
-   URL: /api/roadmap
-
+URL: /api/roadmap
 Method: POST
-
-Description: Returns a 3-phase career roadmap for the specified role.
+Description: Returns a 3-phase roadmap for the chosen role.
 
 Request Body:
-
-json
 {
 "targetRole": "Backend Developer"
 }
-Response: Array of roadmap phases, each with:
 
-phase (String)
+Response Example:
+[
+{ "phase": "Phase 1 (1-2 months)", "topics": ["Java basics", "OOP", "Git"] },
+{ "phase": "Phase 2 (2 months)", "topics": ["Spring Boot", "SQL", "APIs"] },
+{ "phase": "Phase 3 (1-2 months)", "topics": ["Deployment", "Projects", "System Design Basics"] }
+]
 
-topics (Array of strings)
+🔹 3. Latest Tech News API
 
-3. Latest Tech News (HackerNews Integration)
-   URL: /api/news
-
+URL: /api/news
 Method: GET
+Description: Fetches top 5 trending tech stories from HackerNews.
 
-Description: Fetches the top 5 latest tech stories from HackerNews.
+Response Example:
 
-Response: Array of news item objects including:
+Each story includes:
 
-title, url, score, time, type, by
+title
 
-Testing APIs with Postman
-Skill Gap API
+url
+
+score
+
+time
+
+type
+
+by
+
+🧪 Testing APIs with Postman
+✔ Skill Gap API
 
 Method: POST
 
 URL: http://localhost:5000/api/skill-gap
 
-Body: raw JSON example (see above)
+Body: raw JSON
 
-Send request and check response fields as described.
-
-Roadmap API
+✔ Roadmap API
 
 Method: POST
 
 URL: http://localhost:5000/api/roadmap
 
-Body: raw JSON example (see above)
-
-Expect roadmap phases as response.
-
-News API
+✔ News API
 
 Method: GET
 
 URL: http://localhost:5000/api/news
 
-No body needed.
+📝 Notes
 
-Expect array of latest tech news items.
+Basic input validation implemented — ensure valid JSON inputs.
 
-Notes
-Input validation is minimal; ensure proper JSON structure in requests.
+Backend runs using ES Modules.
 
-Backend supports JSON data only and runs with ES modules.
+CORS enabled for frontend communication.
 
-No authentication included.
-
-CORS enabled to allow frontend interaction.
+No authentication or sessions included.

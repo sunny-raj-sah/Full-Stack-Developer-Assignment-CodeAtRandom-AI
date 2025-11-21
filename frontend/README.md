@@ -1,37 +1,69 @@
-CodeAtRandom AI Frontend - README
-Overview
-This React.js frontend application provides the user interface for the Full Stack Developer Assignment. It allows users to input their career goals and current skills, then displays their skill gap analysis, career roadmap, and latest tech news fetched from the backend APIs.
+🎯 CodeAtRandom AI — Frontend
 
-Features
-Career Goal Input Page
-Users can enter:
+A React-based frontend application for the Full Stack Developer Assignment, enabling users to analyze their career goals, identify skill gaps, and view a structured career roadmap along with the latest tech news.
 
-Target Role (text input, e.g., "Backend Developer")
+📌 Overview
 
-Current Skills (comma-separated text input)
+This React.js frontend provides an intuitive user interface to interact with backend APIs.
+Users can:
 
-Click "Analyze My Career Path" button to submit.
+Enter career goals
 
-Combined Dashboard Page
-Displays:
+Provide current skills
 
-Skill Gap Results with matched and missing skills and recommendations
+Receive skill gap analysis
 
-Three-level Career Roadmap for the selected role
+View career roadmap
 
-Latest Technology News fetched via HackerNews API
+Read latest tech news (HackerNews API via backend)
 
-Technology Stack
-React.js with functional components and hooks
+All results are fetched from the backend and displayed in a clean, minimal UI.
 
-Axios for backend API calls
+✨ Features
+📝 Career Goal Input Page
 
-Plain CSS styling via imported App.css
+Allows users to enter:
 
-No state management libraries used (simple props and state hooks)
+Target Role (e.g., Backend Developer)
 
-Project Structure
-text
+Current Skills (comma-separated)
+
+With a button:
+Analyze My Career Path
+
+📊 Combined Dashboard Page
+
+Displays three key sections:
+
+🔹 1. Skill Gap Results
+
+Shows:
+
+Matched skills
+
+Missing skills
+
+Personalized recommendations
+
+🔹 2. Career Roadmap
+
+Three-level progression for the selected role.
+
+🔹 3. Latest Tech News
+
+Fetched from HackerNews API via backend GET /api/news.
+
+🛠 Technology Stack
+
+React.js (Functional Components + Hooks)
+
+Axios for API calls
+
+Plain CSS via App.css
+
+No external UI libraries (minimal dependency footprint)
+
+📁 Project Structure
 /src
 /components
 CareerInputForm.js
@@ -42,46 +74,65 @@ api.js
 App.js
 index.js
 App.css
-Setup Instructions
-Open terminal, navigate to frontend directory.
 
-Run dependencies install:
+🚀 Setup Instructions
 
-bash
+Open terminal and navigate to the frontend folder.
+
+Install dependencies:
+
 npm install
-Start development server:
 
-bash
+Start the development server:
+
 npm start
-Open browser to http://localhost:3000.
-Make sure backend server is running on http://localhost:5000 to enable API calls.
 
-API Endpoints Used
-POST /api/skill-gap – to get skill gap analysis results.
+Open the app in the browser:
+👉 http://localhost:3000
 
-POST /api/roadmap – to get the career roadmap.
+⚠ Backend Requirement
 
-GET /api/news – to get the latest technology news.
+Make sure the backend is running at:
 
-Usage
-Enter your target role and current skills on the input page.
+http://localhost:5000
 
-Submit to see the combined dashboard with skill gap, roadmap, and news.
+Otherwise, API calls will fail.
 
-UI is minimalistic and responsive.
+🔌 API Endpoints Used
+Method Endpoint Description
+POST /api/skill-gap Returns skill gap analysis
+POST /api/roadmap Generates a career roadmap
+GET /api/news Fetches tech news from HackerNews
+💡 Usage Flow
 
-Styling and UI
-Simple responsive layout using CSS in App.css.
+Enter your target role and skills.
 
-Clean, easy-to-read results display.
+Submit the form.
 
-No external UI libraries to keep dependencies minimal.
+View the Skill Gap, Roadmap, and Latest Tech News on the dashboard.
 
-Assumptions & Notes
-The frontend expects backend APIs to respond with specified JSON shape.
+UI is simple, clean, and responsive.
 
-No authentication or persistent login features implemented.
+🎨 Styling & UI
 
-User inputs are validated minimally to ensure required fields are filled.
+Minimalistic CSS via App.css
 
-This frontend can be deployed on any static hosting supporting React apps (e.g., Vercel, Netlify).
+Clean layout
+
+No external UI frameworks
+
+Fully responsive design
+
+📚 Assumptions & Notes
+
+Backend must return data in expected JSON format.
+
+Minimal input validation (fields must not be empty).
+
+No authentication implemented.
+
+Can be deployed on any React-compatible static host:
+
+Vercel (recommended)
+
+GitHub Pages

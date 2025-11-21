@@ -8,7 +8,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:3000", // Local React frontend
-  "https://your-frontend-vercel-url.vercel.app", // Replace with your deployed frontend URL
+  "https://full-stack-developer-assignment-cod.vercel.app", // Replace with your deployed frontend URL
 ];
 
 app.use(
