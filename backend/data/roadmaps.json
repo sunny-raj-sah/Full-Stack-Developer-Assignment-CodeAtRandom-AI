@@ -1,0 +1,12 @@
+{
+  "Backend Developer": [
+    { "phase": "Phase 1 (1-2 months)", "topics": ["Java basics", "OOP", "Git"] },
+    { "phase": "Phase 2 (2 months)", "topics": ["Spring Boot", "SQL", "APIs"] },
+    { "phase": "Phase 3 (1-2 months)", "topics": ["Deployment", "Projects", "System Design Basics"] }
+  ],
+  "Frontend Developer": [
+    { "phase": "Phase 1 (1-2 months)", "topics": ["HTML", "CSS", "Git"] },
+    { "phase": "Phase 2 (2 months)", "topics": ["JavaScript", "React"] },
+    { "phase": "Phase 3 (1-2 months)", "topics": ["Testing", "Optimization", "Deployments"] }
+  ]
+}
